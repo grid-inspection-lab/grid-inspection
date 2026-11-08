@@ -7,8 +7,8 @@ def candidate_bound(c,z,e):
  if not sol.success:return float(max(row))
  lam=sol.ineqlin.marginals[m:]-sol.ineqlin.marginals[:m];lam/=max(1,sum(abs(lam)));return max(float(max(row)),float(lam@f-abs(J.T@lam)@e-abs(lam)@R),0.)
 
-def audit_queue(scenario,order,source,budget=None):
- """Audit one independently supplied source record at a time; do not infer it from the label."""
+def inspection_queue(scenario,order,source,budget=None):
+ """Inspect one independently supplied source record at a time; do not infer it from the label."""
  n=scenario['n'];M=len(source['br']);ids=scenario['record_ids']
  encoded={int(i):row.copy() for i,row in zip(ids,scenario['branch'])};records=[]
  for count,j in enumerate(order[:len(order) if budget is None else budget],1):
@@ -30,10 +30,10 @@ def pipeline_checks():
  for n,split in [(14,'test'),(30,'test'),(57,'test'),(118,'transfer')]:
   src=network(n);ss=data[n,split];checks=[]
   for z in ss:
-   order=np.argsort(-z['scores']['EdgeGNN'],kind='stable');outcome=audit_queue(z,order,src);rank=int(np.where(order==z['target'])[0][0])+1
+   order=np.argsort(-z['scores']['EdgeGNN'],kind='stable');outcome=inspection_queue(z,order,src);rank=int(np.where(order==z['target'])[0][0])+1
    assert outcome['status']=='compatible point' and outcome['record']==z['target'] and outcome['queries']==rank
    checks.append(outcome);total+=1
-  short=audit_queue(ss[0],np.argsort(-ss[0]['scores']['EdgeGNN'],kind='stable'),src,budget=0);assert short['status']=='unresolved'
+  short=inspection_queue(ss[0],np.argsort(-ss[0]['scores']['EdgeGNN'],kind='stable'),src,budget=0);assert short['status']=='unresolved'
   out[str(n)]={'N':len(checks),'all_correct_source_records':True,'mean_queries':float(np.mean([z['queries'] for z in checks])),'max_corrected_lower':max(z['lower'] for z in checks),'max_point_residual':max(z['upper'] for z in checks),'budget_zero_status':short['status']}
   print(n,out[str(n)],flush=True)
  json.dump(out,open('learning/pipeline.json','w'),indent=2)

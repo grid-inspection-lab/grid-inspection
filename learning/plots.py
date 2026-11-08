@@ -5,7 +5,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from pathlib import Path
 from PIL import Image
-r=json.load(open('learning/results.json'));a=json.load(open('learning/audit.json'));rep=json.load(open('learning/repeats.json'));data,_=pickle.load(open('learning/evaluated.pkl','rb'));dest=Path('figures');dest.mkdir(exist_ok=True)
+r=json.load(open('learning/results.json'));a=json.load(open('learning/inspection.json'));rep=json.load(open('learning/repeats.json'));data,_=pickle.load(open('learning/evaluated.pkl','rb'));dest=Path('figures');dest.mkdir(exist_ok=True)
 plt.rcParams.update({'font.family':'serif','font.size':10,'axes.labelsize':10,'axes.titlesize':11,'legend.fontsize':8,'axes.spines.top':False,'axes.spines.right':False,'axes.edgecolor':'#53677b','axes.labelcolor':'#203c5a','xtick.color':'#425366','ytick.color':'#425366','axes.grid':True,'grid.alpha':.14,'grid.linewidth':.6,'figure.facecolor':'white','savefig.facecolor':'white','mathtext.fontset':'dejavuserif','lines.linewidth':1.8})
 C={'EdgeGNN':'#007f79','RandomForest':'#c96926','Residual':'#748292','GraphSAGE':'#203c5a','EdgeMLP':'#8a6390','NoPhysics':'#ad8c58'}
 L={'EdgeGNN':'Edge-aware GNN','RandomForest':'Random forest','Residual':'Residual ranking','GraphSAGE':'Mean GNN','EdgeMLP':'Endpoint MLP','NoPhysics':'Without residual features'}
@@ -16,14 +16,14 @@ fig,axs=plt.subplots(1,2,figsize=(7.2,3.5),layout='constrained')
 for name in ['EdgeGNN','RandomForest','GraphSAGE','EdgeMLP','Residual']:
  y=[r['models'][name][str(n)]['top1']*100 for n in [14,30,57,118]];axs[0].plot(range(4),y,'o-',color=C[name],label=L[name]);axs[1].plot(range(4),[r['models'][name][str(n)]['mean_rank'] for n in [14,30,57,118]],'o-',color=C[name])
 for ax in axs:ax.set(xticks=range(4),xticklabels=['14','30','57','118*'],xlabel='Test network (buses)')
-axs[0].set(ylabel='Top-1 circuit localization (%)',ylim=(55,96));axs[1].set(ylabel='Mean correct-record rank',yscale='log');axs[0].legend(frameon=False,loc='lower left',fontsize=7.2);save(fig,'Localization-and-Audit-Rank')
+axs[0].set(ylabel='Top-1 circuit localization (%)',ylim=(55,96));axs[1].set(ylabel='Mean correct-record rank',yscale='log');axs[0].legend(frameon=False,loc='lower left',fontsize=7.2);save(fig,'Localization-and-Inspection-Rank')
 # budget curves
 fig,axs=plt.subplots(2,2,figsize=(7.2,5.3),layout='constrained')
 for ax,n in zip(axs.ravel(),[14,30,57,118]):
  for name in ['EdgeGNN','RandomForest','GraphSAGE','Residual']:
   ranks=np.array(r['models'][name][str(n)]['rank']);ax.step(range(1,11),[np.mean(ranks<=k)*100 for k in range(1,11)],where='post',color=C[name],label=L[name])
  ax.set(title=f'{n}-bus'+(' transfer' if n==118 else ' withheld circuits'),xlabel='Inspected candidates K',ylabel='Correct circuit in top-K (%)',xticks=[1,3,5,10],ylim=(55,101))
-axs[1,0].legend(frameon=False,loc='lower right',fontsize=7.2);save(fig,'Audit-Budget-Curves')
+axs[1,0].legend(frameon=False,loc='lower right',fontsize=7.2);save(fig,'Inspection-Budget-Curves')
 # precision
 fig,axs=plt.subplots(1,2,figsize=(7.2,3.3),layout='constrained')
 for name in ['EdgeGNN','RandomForest','Residual']:
