@@ -1,0 +1,26 @@
+{
+  "14": {
+    "voltage_difference": 8.881784197001252e-16,
+    "angle_difference_rad": 8.881784197001252e-16,
+    "jacobian_relative_error": 1.9474611419518717e-11,
+    "remainder_implementation_difference": 3.3881317890172014e-21
+  },
+  "30": {
+    "voltage_difference": 1.3322676295501878e-15,
+    "angle_difference_rad": 1.3808398868775384e-15,
+    "jacobian_relative_error": 1.607486505987081e-11,
+    "remainder_implementation_difference": 6.776263578034403e-21
+  },
+  "57": {
+    "voltage_difference": 3.4017233474514796e-13,
+    "angle_difference_rad": 2.530198273120732e-13,
+    "jacobian_relative_error": 2.1077021981685962e-11,
+    "remainder_implementation_difference": 1.3552527156068805e-20
+  },
+  "118": {
+    "voltage_difference": 2.90878432451791e-14,
+    "angle_difference_rad": 3.191804459623526e-14,
+    "jacobian_relative_error": 1.6952947618884636e-11,
+    "remainder_implementation_difference": 1.3552527156068805e-20
+  }
+}

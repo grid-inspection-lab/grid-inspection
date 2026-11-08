@@ -1,0 +1,34 @@
+{
+  "14": {
+    "N": 220,
+    "all_correct_source_records": true,
+    "mean_queries": 1.6454545454545455,
+    "max_corrected_lower": 0.0,
+    "max_point_residual": 2.027544798721692e-14,
+    "budget_zero_status": "unresolved"
+  },
+  "30": {
+    "N": 220,
+    "all_correct_source_records": true,
+    "mean_queries": 2.95,
+    "max_corrected_lower": 0.0,
+    "max_point_residual": 2.6305346789712303e-14,
+    "budget_zero_status": "unresolved"
+  },
+  "57": {
+    "N": 220,
+    "all_correct_source_records": true,
+    "mean_queries": 2.9909090909090907,
+    "max_corrected_lower": 0.0,
+    "max_point_residual": 6.416533970821092e-13,
+    "budget_zero_status": "unresolved"
+  },
+  "118": {
+    "N": 350,
+    "all_correct_source_records": true,
+    "mean_queries": 15.062857142857142,
+    "max_corrected_lower": 0.0,
+    "max_point_residual": 9.999001351576964e-13,
+    "budget_zero_status": "unresolved"
+  }
+}
