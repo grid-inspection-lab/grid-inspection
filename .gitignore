@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+learning/*.pkl
+learning/*.pt
+learning/*.log

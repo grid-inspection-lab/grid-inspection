@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: "Grid Audit: code for rounding-aware graph neural diagnosis of power-flow benchmark errors with mathematical verification"
+version: "1.0.0"
+date-released: "2026-11-08"
+license: MIT
+repository-code: "https://github.com/grid-audit-lab/grid-audit"
+url: "https://github.com/grid-audit-lab/grid-audit"
+authors:
+  - family-names: Raagas
+    given-names: Christopher John T.
+    affiliation: "University of Science and Technology of Southern Philippines; Liceo de Cagayan University"
+  - family-names: Yahya
+    given-names: Abid
+    affiliation: "University of Science and Technology of Southern Philippines; Botswana International University of Science and Technology"
+  - family-names: Bulay-og
+    given-names: Lory
+    affiliation: "University of Science and Technology of Southern Philippines"
+  - family-names: Jose
+    given-names: Oliver Lexter July
+    affiliation: "Batangas State University, The National Engineering University"
+  - family-names: Asiimwe
+    given-names: Eva
+    affiliation: "Kampala International University"
+  - family-names: Badruddin
+    given-names: Irfan Anjum
+    affiliation: "King Khalid University"
+keywords:
+  - power flow
+  - benchmark data quality
+  - graph neural networks
+  - rounding
+  - verification

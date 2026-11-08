@@ -1,0 +1,8 @@
+numpy==2.3.5
+scipy==1.17.0
+torch==2.15.0
+scikit-learn==1.8.0
+PYPOWER==5.1.21
+matplotlib
+Pillow
+networkx
