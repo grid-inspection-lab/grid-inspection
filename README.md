@@ -1,6 +1,6 @@
 # Grid Audit
 
-Code and recorded results for the article **"Rounding-Aware Graph Neural Diagnosis of Power-Flow Benchmark Errors with Mathematical Verification"** by Christopher John T. Raagas, Abid Yahya, Lory Bulay-og, Oliver Lexter July Jose, Eva Asiimwe and Irfan Anjum Badruddin.
+Code and recorded results for the article **"Rounding-Aware Graph Neural Diagnosis of Power-Flow Benchmark Errors with Mathematical Verification"**.
 
 The method ranks suspect circuit records in rounded power-flow benchmarks with an edge-gated graph neural network, then checks each inspected correction with a separate residual verifier. The learned ranking only decides the inspection order. Lower bounds and feasible operating points decide whether a candidate is compatible.
 
@@ -73,4 +73,4 @@ If you use this code, please cite the article above and this repository. Citatio
 
 ## Contact
 
-Corresponding author: Eva Asiimwe, Kampala International University (eva.assiimwe@kiu.ac.ug).
+Christopher John T. Raagas, University of Science and Technology of Southern Philippines. Please use the Issues page of this repository for questions.
