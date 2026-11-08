@@ -1,4 +1,4 @@
-# Grid Audit
+# Grid Inspection
 
 Code and recorded results for the article **"Rounding-Aware Graph Neural Diagnosis of Power-Flow Benchmark Errors with Mathematical Verification"**.
 
@@ -11,8 +11,8 @@ The method ranks suspect circuit records in rounded power-flow benchmarks with a
 | `work/analysis.py` | Power-flow equations, analytic Jacobian, Newton solver, reference row-remainder bound and rounding helpers |
 | `learning/study.py` | Network loading, candidate inventory, mutations, rounding-aware features, scenario generation, the graph models, baselines and training |
 | `learning/repeat.py` | Repeat training runs with seeds 47 and 83 |
-| `learning/audit.py` | Invariance and gradient checks, calibration, conditional fault-type confusion, source-repair verification and branch-group bootstrap |
-| `learning/pipeline.py` | Coupled linear-programming bound and the queue-based source-record audit |
+| `learning/inspection.py` | Invariance and gradient checks, calibration, conditional fault-type confusion, source-repair verification and branch-group bootstrap |
+| `learning/pipeline.py` | Coupled linear-programming bound and the queue-based source-record inspection |
 | `learning/physics-check.py` | Comparison of the solver and Jacobian with PYPOWER, and of the two remainder implementations |
 | `learning/plots.py` | Regenerates the result figures |
 | `recorded-results/` | JSON summaries from the completed experiment runs reported in the article |
@@ -37,13 +37,13 @@ Run all commands from the repository root. Full reproduction regenerates the sce
 ```bash
 python run.py train      # scenarios, models and baselines -> learning/results.json
 python run.py repeat     # repeat runs -> learning/repeats.json
-python run.py audit      # checks, calibration and bootstrap -> learning/audit.json
-python run.py pipeline   # source-record audit -> learning/pipeline.json
+python run.py inspection # checks, calibration and bootstrap -> learning/inspection.json
+python run.py pipeline   # source-record inspection -> learning/pipeline.json
 python run.py physics    # solver and remainder checks -> learning/physics-check.json
 python run.py plots      # figures -> figures/
 ```
 
-`python run.py all` runs the stages in this order. Training writes `learning/data.pkl`, the model checkpoints, `learning/evaluated.pkl` and numerical summaries. The repeat and audit stages must complete before the plots are regenerated. The physics check can run on its own after installing the dependencies. Training skips data generation if `learning/data.pkl` already exists; delete that file to regenerate the scenarios. Generated summaries are written under `learning/`, and the archived summaries stay in `recorded-results/` for comparison.
+`python run.py all` runs the stages in this order. Training writes `learning/data.pkl`, the model checkpoints, `learning/evaluated.pkl` and numerical summaries. The repeat and inspection stages must complete before the plots are regenerated. The physics check can run on its own after installing the dependencies. Training skips data generation if `learning/data.pkl` already exists; delete that file to regenerate the scenarios. Generated summaries are written under `learning/`, and the archived summaries stay in `recorded-results/` for comparison.
 
 Random seeds are fixed: 4501 for scenario generation, 29 for the main training run and 47 and 83 for the repeat runs. Floating-point libraries and hardware may still change exact training results slightly.
 

@@ -7,7 +7,7 @@ import sys
 STAGES = {
     "train": "study.py",
     "repeat": "repeat.py",
-    "audit": "audit.py",
+    "inspection": "inspection.py",
     "pipeline": "pipeline.py",
     "physics": "physics-check.py",
     "plots": "plots.py",

@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
 type: software
-title: "Grid Audit: code for rounding-aware graph neural diagnosis of power-flow benchmark errors with mathematical verification"
+title: "Grid Inspection: code for rounding-aware graph neural diagnosis of power-flow benchmark errors with mathematical verification"
 version: "1.0.0"
 date-released: "2026-11-08"
 license: MIT
-repository-code: "https://github.com/grid-audit-lab/grid-audit"
-url: "https://github.com/grid-audit-lab/grid-audit"
+repository-code: "https://github.com/grid-inspection-lab/grid-inspection"
+url: "https://github.com/grid-inspection-lab/grid-inspection"
 authors:
   - family-names: Raagas
     given-names: Christopher John T.
